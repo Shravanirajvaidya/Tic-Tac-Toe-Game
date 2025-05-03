@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tricky Tic Tac Toe</title>
+  <link rel="stylesheet" href="styles.css" />
+ 
+  <style>
+    .screen {
+      display: none;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .loader {
+      border: 8px solid #f3f3f3;
+      border-top: 8px solid #6a0dad;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1.5s linear infinite;
+      margin: 40px auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .btn {
+      padding: 12px 24px;
+      font-size: 1.2em;
+      margin-top: 20px;
+      background-color: #6a0dad;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+
+<!-- 1 . Welcome Screen -->
+<div id="welcome-screen" class="screen active">
+  <div class="screen-box">
+    <h1>TRICKY_TIC_TAC_TOE</h1>
+    <img src="TTT.jpg" alt="Tic Tac Toe Drawing" style="width: 100%; max-width: 300px; margin: 20px auto; display: block;" />
+    <button class="btn" onclick="showLoader()">Play</button>
+  </div>
+</div>
+
+
+<!-- 2 . Loader Screen -->
+<div id="loader-screen" class="screen">
+  <div class="screen-box">
+    <div class="loader"></div>
+    <p>Loading...</p>
+  </div>
+</div>
+
+<!-- 3. How to Play Screen -->
+<div id="instructions-screen" class="screen">
+  <div class="screen-box">
+    <h2>How to Play</h2>
+    <p>1. The game is played on a 3x3 grid.</p>
+    <p>2. Player X starts the game.</p>
+    <p>3. Players take turns placing their mark (X or O).</p>
+    <p>4. Align 3 marks to win. All filled but no win = Draw.</p>
+    <button class="btn" onclick="startGame()">Start Game</button>
+  </div>
+</div>
+
+<!-- 4. Game Screen -->
+<div id="game-screen" class="screen">
+  <div class="screen-box">
+    <div class="container">
+      <h1 class="fade-in">Tic-Tac-Toe</h1>
+      <div class="status">Player X's turn</div>
+      <div class="board"></div>
+      <button class="restart btn">Restart Game</button>
+    </div>
+  </div>
+
+  <!-- Popup Modal remains unchanged -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <p id="popup-message"></p>
+      <button class="popup-btn btn" onclick="closePopup()">OK</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+  function showLoader() {
+    document.getElementById('welcome-screen').classList.remove('active');
+    document.getElementById('loader-screen').classList.add('active');
+    setTimeout(() => {
+      document.getElementById('loader-screen').classList.remove('active');
+      document.getElementById('instructions-screen').classList.add('active');
+    }, 2000);
+  }
+
+  function startGame() {
+    document.getElementById('instructions-screen').classList.remove('active');
+    document.getElementById('game-screen').classList.add('active');
+  }
+</script>
+</body>
+</html>
