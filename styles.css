@@ -212,3 +212,32 @@ h1 {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+/*footer*/
+
+
+footer {
+  background-color: #6a0dad; /* Purple background */
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.9em;
+  margin-top: 30px;
+}
+
+footer a {
+  color: #f1f1f1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #f9d9ff;
+}
+
+footer p {
+  margin: 5px;
+}
+
+
+
